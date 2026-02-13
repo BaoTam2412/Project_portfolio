@@ -398,6 +398,7 @@ footer {
   }
   * {
     scroll-margin-top: 80px;
+    -webkit-tap-highlight-color: transparent; /* Tắt màu xanh khi bấm trên mobile */
   }
   nav {
     flex-direction: column;
@@ -422,26 +423,64 @@ footer {
   }
   /* Nay mình sửa cái nút, thanh navbar ở đt, chỉnh fontsize của navitems */
   /* Mai chỉnh nốt mấy cái thẻ p ở từng phần là oke ngon lành */
+  .hero {
+    gap: 0px;
+  }
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+  padding: 0 20px;
+  margin-bottom: 35px; 
+  font-size: 1.1rem;
+  }
+  .btn {
+    padding: 10px 28px;  /* Giảm độ dày nút (cũ là 15px 35px) */
+    font-size: 1rem;
+  }
+  .section-title {
+    font-size: 2rem;
+    padding: 0 15px;
+  }
+  .section-title::after {
+    left: 1.2rem;
+    bottom: -5px;
   }
   .about-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+    padding: 0 15px;
+  }
+  .skills-grid {
+    padding: 0 15px;
+  }
+  #skills > p {
+    padding: 0 15px; /* Cách lề trái phải 20px */
+  } 
+  #socials > p {
+    padding: 0 15px;
+  }
+  .social-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-btn {
+    justify-content: center;
+    align-items: center;
+    padding: 10px 25px;      /* Giảm độ dày (cũ là 15px 30px) */
+    font-size: 1rem;         /* Chữ vừa phải */      /* Nút co lại theo nội dung, không bị kéo dài */
+    min-width: 350px;
   }
   .project-card {
     flex-direction: column;
+    padding: 0 20px;
   }
   .project-image {
     width: 100%;
     height: 250px;
-  }
-  .social-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .social-btn {
-    justify-content: center;
   }
   .info-card {
     background: var(--card-bg);
