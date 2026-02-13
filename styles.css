@@ -1,363 +1,484 @@
+:root {
+  /* Bảng màu Pastel Thiên Nhiên */
+  --bg-color: #f8faf8;
+  --card-bg: #ffffff;
+  --text-main: #4a5d5e;
+  --text-muted: #839799;
+  --accent: #8fcb9b; /* Sage Green */
+  --accent-dark: #6fb37d;
+  --shadow: 0 10px 30px -15px rgba(143, 203, 155, 0.4);
+}
+html {
+  scroll-behavior: smooth; /* Cuộn trang mượt mà khi click menu */
+}
 
-        :root {
-            /* Bảng màu Pastel Thiên Nhiên */
-            --bg-color: #F8FAF8;
-            --card-bg: #ffffff;
-            --text-main: #4A5D5E;
-            --text-muted: #839799;
-            --accent: #8FCB9B; /* Sage Green */
-            --accent-dark: #6FB37D;
-            --shadow: 0 10px 30px -15px rgba(143, 203, 155, 0.4);
-        }
-        html {
-           scroll-behavior: smooth; /* Cuộn trang mượt mà khi click menu */
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-margin-top: 50px;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-margin-top: 50px;
-        }
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Nunito", sans-serif;
+  color: var(--text-main);
+  font-weight: 800;
+}
 
-        h1, h2, h3, h4 {
-            font-family: 'Nunito', sans-serif;
-            color: var(--text-main);
-            font-weight: 800;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 30px;
-            position: relative;
-            z-index: 2;
-        }
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 30px;
+  position: relative;
+  z-index: 2;
+}
 
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            display: inline-block;
-            position: relative;
-            margin-top: 60px; /* Thêm khoảng cách phía trên mỗi mục */
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 60%;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 10px;
-        }
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  display: inline-block;
+  position: relative;
+  margin-top: 60px; /* Thêm khoảng cách phía trên mỗi mục */
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 60%;
+  height: 4px;
+  background-color: var(--accent);
+  border-radius: 10px;
+}
 
-        /* Background Shapes */
-        .nature-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50vw;
-            height: 50vh;
-            background-color: #E8F5E9;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            z-index: 1;
-            opacity: 0.6;
-            filter: blur(40px);
-        }
-        .nature-bg-2 {
-            position: absolute;
-            bottom: 10%;
-            left: -10%;
-            width: 40vw;
-            height: 40vh;
-            background-color: #E0F2F1;
-            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-            z-index: -1;
-            opacity: 0.6;
-            filter: blur(40px);
-        }
+/* Background Shapes */
+.nature-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 50vh;
+  background-color: #e8f5e9;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  z-index: 1;
+  opacity: 0.6;
+  filter: blur(40px);
+}
+.nature-bg-2 {
+  position: absolute;
+  bottom: 10%;
+  left: -10%;
+  width: 40vw;
+  height: 40vh;
+  background-color: #e0f2f1;
+  border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(40px);
+}
 
-        /* === Navigation Bar Mới === */
-        nav {
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky; /* Ghim menu khi cuộn (tùy chọn) */
-            top: 0;
-            z-index: 100;
-            background: rgba(248, 250, 248, 0.9); /* Màu nền bán trong suốt */
-            backdrop-filter: blur(10px); /* Hiệu ứng mờ kính */
-        }
-        nav .logo {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: var(--accent);
-            text-decoration: none; /* Bỏ gạch chân liên kết */
-            cursor: pointer;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-        nav ul li {
-            margin-left: 30px;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-family: 'Nunito', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: color 0.3s;
-            position: relative;
-        }
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-        /* Hiệu ứng gạch chân nhỏ khi hover menu */
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent);
-            transition: width 0.3s ease-in-out;
-            border-radius: 10px;
-        }
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        /* Hero Section */
-        /* --- Sửa lại bố cục Hero --- */
-        .hero {
-            min-height: 85vh;
-            display: flex;             /* Kích hoạt chế độ chia cột */
-            align-items: center;       /* Căn giữa theo chiều dọc */
-            justify-content: space-between; /* Đẩy 2 bên ra xa nhau */
-            gap: 100px;                 /* Khoảng cách giữa chữ và ảnh */
-        }
-        /* Định dạng cho khối chữ bên trái (Giữ nguyên form) */
-        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 10px; }
-        .hero h2 { font-size: 2.2rem; color: var(--accent); margin-bottom: 25px; font-weight: 700; }
-        .hero p { max-width: 550px; color: var(--text-muted); margin-bottom: 35px; font-size: 1.1rem; }
-        /* Định dạng cho khối ảnh bên phải */
-        .hero-image {
-            flex: 0 0 350px;           /* Chiều rộng cố định của khung ảnh */
-            height: 350px;             /* Chiều cao bằng chiều rộng -> Hình vuông */
-            position: relative;
-            border-radius: 50%;        /* Biến hình vuông thành hình tròn */
-            border: 5px solid rgba(143, 203, 155, 0.5); /* Viền màu xanh pastel mờ */
-            padding: 8px;              /* Khoảng hở giữa ảnh và viền */
-            background-color: #fff;
-            box-shadow: var(--shadow); /* Đổ bóng nhẹ */
-            
-            /* Hiệu ứng ảnh nổi lên xuống nhẹ nhàng */
-            animation: float 6s ease-in-out infinite;
-        }
+/* === Navigation Bar Mới === */
+nav {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky; /* Ghim menu khi cuộn (tùy chọn) */
+  top: 0;
+  z-index: 100;
+  background: rgba(248, 250, 248, 0.9); /* Màu nền bán trong suốt */
+  backdrop-filter: blur(10px); /* Hiệu ứng mờ kính */
+}
+nav .logo {
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: var(--accent);
+  text-decoration: none; /* Bỏ gạch chân liên kết */
+  cursor: pointer;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+}
+nav ul li {
+  margin-left: 30px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: color 0.3s;
+  position: relative;
+}
+nav ul li a:hover {
+  color: var(--accent);
+}
+/* Hiệu ứng gạch chân nhỏ khi hover menu */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease-in-out;
+  border-radius: 10px;
+}
+nav ul li a:hover::after {
+  width: 100%;
+}
+/* Hero Section */
+/* --- Sửa lại bố cục Hero --- */
+.hero {
+  min-height: 85vh;
+  display: flex; /* Kích hoạt chế độ chia cột */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: space-between; /* Đẩy 2 bên ra xa nhau */
+  gap: 100px; /* Khoảng cách giữa chữ và ảnh */
+}
+/* Định dạng cho khối chữ bên trái (Giữ nguyên form) */
+.hero h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.hero h2 {
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+.hero p {
+  max-width: 550px;
+  color: var(--text-muted);
+  margin-bottom: 35px;
+  font-size: 1.1rem;
+}
+/* Định dạng cho khối ảnh bên phải */
+.hero-image {
+  flex: 0 0 350px; /* Chiều rộng cố định của khung ảnh */
+  height: 350px; /* Chiều cao bằng chiều rộng -> Hình vuông */
+  position: relative;
+  border-radius: 50%; /* Biến hình vuông thành hình tròn */
+  border: 5px solid rgba(143, 203, 155, 0.5); /* Viền màu xanh pastel mờ */
+  padding: 8px; /* Khoảng hở giữa ảnh và viền */
+  background-color: #fff;
+  box-shadow: var(--shadow); /* Đổ bóng nhẹ */
 
-        /* Xử lý ảnh bên trong để luôn đẹp */
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;         /* Cắt ảnh vừa khung, không bị méo */
-            border-radius: 50%;        /* Bo tròn ảnh */
-        }
+  /* Hiệu ứng ảnh nổi lên xuống nhẹ nhàng */
+  animation: float 6s ease-in-out infinite;
+}
 
-        /* Animation nhẹ nhàng */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
+/* Xử lý ảnh bên trong để luôn đẹp */
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cắt ảnh vừa khung, không bị méo */
+  border-radius: 50%; /* Bo tròn ảnh */
+}
 
-        /* --- Responsive: Khi màn hình nhỏ (Mobile/Tablet) --- */
-        @media (max-width: 992px) {
-            .hero {
-                flex-direction: column-reverse; /* Đảo ngược: Ảnh lên trên, Chữ xuống dưới */
-                justify-content: center;
-                text-align: center;
-                padding-top: 50px;
-            }
+/* Animation nhẹ nhàng */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 
-            .hero-image {
-                width: 250px;  /* Thu nhỏ ảnh lại trên mobile */
-                height: 250px;
-                flex: none;
-                margin-bottom: 30px;
-            }
+/* --- Responsive: Khi màn hình nhỏ (Mobile/Tablet) --- */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column-reverse; /* Đảo ngược: Ảnh lên trên, Chữ xuống dưới */
+    justify-content: center;
+    text-align: center;
+    padding-top: 50px;
+  }
 
-            .hero-text {
-                width: 100%;
-            }
-        }
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background-color: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: 0.3s;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 700;
-            box-shadow: var(--shadow);
-            border: 2px solid var(--accent);
-        }
-        .btn:hover {
-            background: var(--accent-dark);
-            border-color: var(--accent-dark);
-            transform: translateY(-3px);
-        }
+  .hero-image {
+    width: 250px; /* Thu nhỏ ảnh lại trên mobile */
+    height: 250px;
+    flex: none;
+    margin-bottom: 30px;
+  }
 
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 80px;
-            align-items: center;
-        }
-        .info-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-        }
-        .info-item {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            font-size: 1.05rem;
-        }
-        .info-item i {
-            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
-            background-color: #E8F5E9; color: var(--accent); border-radius: 50%; margin-right: 15px;
-        }
+  .hero-text {
+    width: 100%;
+  }
+}
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 15px 35px;
+  background-color: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: 0.3s;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--accent);
+}
+.btn:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  transform: translateY(-3px);
+}
 
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-        .skill-card {
-            background: var(--card-bg);
-            padding: 30px 20px;
-            border-radius: 24px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            box-shadow: var(--shadow);
-        }
-        .skill-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-        .skill-card i {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 80px;
+  align-items: center;
+}
+.info-card {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+.info-item {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+}
+.info-item i {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8f5e9;
+  color: var(--accent);
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
 
-        /* === Social Links Section (Mới) === */
-        .social-container {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 80px;
-        }
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 15px 30px;
-            background-color: var(--card-bg);
-            color: var(--accent);
-            text-decoration: none;
-            border-radius: 50px;
-            transition: 0.3s;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 700;
-            box-shadow: var(--shadow);
-            border: 2px solid var(--accent);
-            font-size: 1.1rem;
-        }
-        .social-btn i {
-            margin-right: 10px;
-            font-size: 1.3rem;
-        }
-        .social-btn:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-3px);
-        }
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+}
+.skill-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: var(--shadow);
+}
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+.skill-card i {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
 
-        /* Projects Section */
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 24px;
-            overflow: hidden;
-            margin-bottom: 100px;
-            display: flex;
-            flex-direction: row;
-            box-shadow: var(--shadow);
-            border: 1px solid #eee;
-        }
-        .project-content { padding: 50px; flex: 1.2; }
-        .project-tech {
-            font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem;
-            color: var(--accent); margin: 15px 0; display: inline-block;
-            background: #E8F5E9; padding: 5px 15px; border-radius: 20px;
-        }
-        .project-image {
-            background-color: #DCECE2; width: 45%; display: flex;
-            align-items: center; justify-content: center; font-size: 4rem;
-            color: var(--accent); position: relative; overflow: hidden;
-        }
-        .project-image::after {
-            content: '\f06c'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
-            position: absolute; font-size: 15rem; color: var(--accent);
-            opacity: 0.1; transform: rotate(-30deg); right: -50px; bottom: -50px;
-        }
+/* === Social Links Section (Mới) === */
+.social-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 80px;
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: var(--card-bg);
+  color: var(--accent);
+  text-decoration: none;
+  border-radius: 50px;
+  transition: 0.3s;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--accent);
+  font-size: 1.1rem;
+}
+.social-btn i {
+  margin-right: 10px;
+  font-size: 1.3rem;
+}
+.social-btn:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-3px);
+}
 
-        footer { text-align: center; padding: 50px 0; color: var(--text-muted); font-weight: 600; }
+/* Projects Section */
+.project-card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: var(--shadow);
+  border: 1px solid #eee;
+}
+.project-content {
+  padding: 50px;
+  flex: 1.2;
+}
+.project-tech {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin: 15px 0;
+  display: inline-block;
+  background: #e8f5e9;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+.project-image {
+  background-color: #dcece2;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+.project-image::after {
+  content: "\f06c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  font-size: 15rem;
+  color: var(--accent);
+  opacity: 0.1;
+  transform: rotate(-30deg);
+  right: -50px;
+  bottom: -50px;
+}
 
-        /* Mobile */
-        @media (max-width: 768px) {
-            nav { flex-direction: column; padding-bottom: 0; }
-            nav ul { margin-top: 20px; flex-wrap: wrap; justify-content: center; }
-            nav ul li { margin: 5px 15px; }
-            .hero h1 { font-size: 3rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 30px;}
-            .project-card { flex-direction: column; }
-            .project-image { width: 100%; height: 250px; }
-            .social-container { flex-direction: column; align-items: stretch; }
-            .social-btn { justify-content: center; }
-        }
-        /* Class cho nút nhỏ hơn dùng trong Project Card */
-        .btn-small {
-            padding: 10px 25px; /* Nhỏ hơn nút chính một chút */
-            font-size: 0.95rem;
-            margin-top: 25px;   /* Cách phần nội dung bên trên ra */
-            display: inline-flex;
-            align-items: center;
-            gap: 8px; /* Khoảng cách giữa chữ và icon */
-        }
-        /* Hiệu ứng khi hover vào nút project */
-        .btn-small:hover {
-            background-color: var(--accent-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+footer {
+  text-align: center;
+  padding: 50px 0;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0px;
+  }
+  * {
+    scroll-margin-top: 80px;
+  }
+  nav {
+    flex-direction: column;
+    padding-bottom: 0;
+    width: 100%; /* Đảm bảo menu chiếm hết chiều ngang */
+  }
+  nav ul {
+    /* margin-top: 20px;  */
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%; /* Chiếm full chiều rộng màn hình */
+    justify-content: space-between; /* Dàn đều các mục sang 2 bên */
+    padding: 0;
+  }
+  nav ul li {
+    margin: 10px 0; /* Bỏ margin ngang, chỉ giữ margin dọc */
+    flex-basis: 20%; /* Chia cột tương đối để các mục không dính chùm */
+    text-align: center;
+  }
+  nav ul li a {
+    font-size: 15px;
+  }
+  /* Nay mình sửa cái nút, thanh navbar ở đt, chỉnh fontsize của navitems */
+  /* Mai chỉnh nốt mấy cái thẻ p ở từng phần là oke ngon lành */
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .project-card {
+    flex-direction: column;
+  }
+  .project-image {
+    width: 100%;
+    height: 250px;
+  }
+  .social-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .social-btn {
+    justify-content: center;
+  }
+  .info-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+  }
+  .info-item {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 1.05rem;
+  }
+  .info-item i {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8f5e9;
+    color: var(--accent);
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+}
+/* Class cho nút nhỏ hơn dùng trong Project Card */
+.btn-small {
+  padding: 10px 25px; /* Nhỏ hơn nút chính một chút */
+  font-size: 0.95rem;
+  margin-top: 25px; /* Cách phần nội dung bên trên ra */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Khoảng cách giữa chữ và icon */
+}
+/* Hiệu ứng khi hover vào nút project */
+.btn-small:hover {
+  background-color: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
